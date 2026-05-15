@@ -34,6 +34,7 @@ const isMenuOpen = ref(false)
 const activeSection = ref('home')
 const missingImages = ref(new Set<string>())
 const currentYear = new Date().getFullYear()
+const logoImage = '/portfolio/logo.png'
 const profileImage = '/portfolio/profile.jpg'
 
 const navItems = [
@@ -211,7 +212,10 @@ onUnmounted(() => {
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="#home" aria-label="Joshua Bariñan portfolio home" @click="closeMenu('home')">
-        <span class="brand-mark">JB</span>
+        <span class="brand-mark">
+          <img v-if="!isImageMissing(logoImage)" :src="logoImage" alt="" @error="markImageMissing(logoImage)" />
+          <span v-else>JB</span>
+        </span>
         <span>
           <strong>Joshua.dev</strong>
           <small>Backend Engineer</small>
