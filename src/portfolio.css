@@ -186,6 +186,7 @@ img {
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
   padding: 64px 0;
+  scroll-margin-top: 92px;
 }
 
 .hero-section {

@@ -177,34 +177,47 @@ const markImageMissing = (path: string) => {
 
 const isImageMissing = (path: string) => missingImages.value.has(path)
 
-let sectionObserver: IntersectionObserver | undefined
+let navSections: HTMLElement[] = []
+let scrollFrame = 0
+
+const updateActiveSection = () => {
+  const headerOffset = 110
+  const currentPosition = window.scrollY + headerOffset
+  const lastSection = navSections
+    .filter((section) => section.offsetTop <= currentPosition)
+    .at(-1)
+
+  activeSection.value = lastSection?.id ?? 'home'
+}
+
+const queueActiveSectionUpdate = () => {
+  if (scrollFrame) {
+    return
+  }
+
+  scrollFrame = window.requestAnimationFrame(() => {
+    updateActiveSection()
+    scrollFrame = 0
+  })
+}
 
 onMounted(() => {
-  const sections = navItems
+  navSections = navItems
     .map((item) => document.querySelector<HTMLElement>(item.href))
     .filter((section): section is HTMLElement => Boolean(section))
 
-  sectionObserver = new IntersectionObserver(
-    (entries) => {
-      const visibleEntry = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-
-      if (visibleEntry?.target.id) {
-        activeSection.value = visibleEntry.target.id
-      }
-    },
-    {
-      rootMargin: '-24% 0px -58% 0px',
-      threshold: [0.12, 0.28, 0.45],
-    },
-  )
-
-  sections.forEach((section) => sectionObserver?.observe(section))
+  updateActiveSection()
+  window.addEventListener('scroll', queueActiveSectionUpdate, { passive: true })
+  window.addEventListener('resize', queueActiveSectionUpdate)
 })
 
 onUnmounted(() => {
-  sectionObserver?.disconnect()
+  window.removeEventListener('scroll', queueActiveSectionUpdate)
+  window.removeEventListener('resize', queueActiveSectionUpdate)
+
+  if (scrollFrame) {
+    window.cancelAnimationFrame(scrollFrame)
+  }
 })
 </script>
 
