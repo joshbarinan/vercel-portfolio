@@ -428,12 +428,12 @@ onUnmounted(() => {
 
               <a
                 v-if="project.link"
-                class="text-link"
+                class="button button-primary project-link"
                 :href="project.link"
                 target="_blank"
                 rel="noreferrer"
               >
-                View project
+                Visit site
                 <ArrowUpRight :size="16" />
               </a>
             </div>

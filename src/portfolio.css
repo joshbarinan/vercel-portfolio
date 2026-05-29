@@ -545,6 +545,11 @@ h3 {
   padding: 20px;
 }
 
+.project-link {
+  justify-self: start;
+  margin-top: 2px;
+}
+
 .project-body ul {
   display: grid;
   gap: 10px;
