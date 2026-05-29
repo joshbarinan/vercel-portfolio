@@ -73,17 +73,17 @@ const highlights = [
 
 const projects: Project[] = [
   {
-    title: 'Personal Portfolio Website',
+    title: 'Mindanao Live',
     eyebrow: 'Full-Stack / DevOps',
     summary:
-      'My personal portfolio website, designed and built independently to present my work, technical background, and deployment experience.',
-    link: 'https://github.com/joshbarinan/vercel-portfolio',
+      'A website I built independently from scratch and deployed to Azure with production infrastructure setup.',
+    link: 'http://mindanao.live/',
     impact: [
-      'Created the website independently from scratch, covering planning, development, and content structure.',
-      'Deployed and configured the site on Azure with SSL for secure access.',
-      'Set up CDN delivery to improve performance and content availability.',
+      'Created the entire website alone from scratch.',
+      'Deployed and configured the site on Azure.',
+      'Set up SSL and CDN for secure delivery and better performance.',
     ],
-    stack: ['Vue 3', 'TypeScript', 'Vite', 'Azure', 'CDN'],
+    stack: ['Azure', 'SSL', 'CDN'],
   },
   {
     title: 'AIMHI Construction SaaS Platform',
