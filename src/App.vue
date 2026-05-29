@@ -72,6 +72,19 @@ const highlights = [
 
 const projects: Project[] = [
   {
+    title: 'Personal Portfolio Website',
+    eyebrow: 'Full-Stack / DevOps',
+    summary:
+      'My personal portfolio website, designed and built independently to present my work, technical background, and deployment experience.',
+    image: '/portfolio/projects/portfolio-website.png',
+    impact: [
+      'Created the website independently from scratch, covering planning, development, and content structure.',
+      'Deployed and configured the site on Azure with SSL for secure access.',
+      'Set up CDN delivery to improve performance and content availability.',
+    ],
+    stack: ['Vue 3', 'TypeScript', 'Vite', 'Azure', 'CDN'],
+  },
+  {
     title: 'AIMHI Construction SaaS Platform',
     eyebrow: 'Backend Engineer / DevOps Engineer',
     summary:
