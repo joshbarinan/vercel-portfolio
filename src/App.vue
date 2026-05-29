@@ -373,7 +373,7 @@ onUnmounted(() => {
             <div>
               <span>Working style</span>
               <strong>Ownership with calm execution</strong>
-              <p>From implementation and debugging to deployment and monitoring</p>
+              <p>From implementation and debugging to deployment and monitoring.</p>
             </div>
           </div>
         </div>
