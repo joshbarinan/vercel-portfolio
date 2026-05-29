@@ -78,7 +78,7 @@ const projects: Project[] = [
     summary:
       'A website I built independently from scratch and deployed to Azure with production infrastructure setup.',
     image: 'https://mindanao.blob.core.windows.net/images/optimized/about-us/original.webp',
-    link: 'http://mindanao.live/',
+    link: 'https://mindanao.live/',
     impact: [
       'Created the entire website alone from scratch.',
       'Deployed and configured the site on Azure.',
@@ -398,7 +398,14 @@ onUnmounted(() => {
 
         <div class="project-list">
           <article v-for="project in projects" :key="project.title" class="project-card">
-            <div class="project-media">
+            <component
+              :is="project.link ? 'a' : 'div'"
+              class="project-media"
+              :class="{ 'project-media--link': project.link }"
+              :href="project.link"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 v-if="project.image && !isImageMissing(project.image)"
                 :src="project.image"
@@ -409,22 +416,17 @@ onUnmounted(() => {
                 <ServerCog :size="36" />
                 <span>{{ project.eyebrow }}</span>
               </div>
-            </div>
+            </component>
             <div class="project-body">
               <p class="project-eyebrow">{{ project.eyebrow }}</p>
-              <h3>{{ project.title }}</h3>
+              <h3>
+                <a v-if="project.link" class="project-title-link" :href="project.link" target="_blank" rel="noreferrer">
+                  {{ project.title }}
+                  <ArrowUpRight :size="18" />
+                </a>
+                <template v-else>{{ project.title }}</template>
+              </h3>
               <p>{{ project.summary }}</p>
-
-              <ul>
-                <li v-for="item in project.impact" :key="item">
-                  <CheckCircle2 :size="16" />
-                  <span>{{ item }}</span>
-                </li>
-              </ul>
-
-              <div class="tag-row" aria-label="Technology stack">
-                <span v-for="tag in project.stack" :key="tag">{{ tag }}</span>
-              </div>
 
               <a
                 v-if="project.link"
@@ -436,6 +438,17 @@ onUnmounted(() => {
                 Visit site
                 <ArrowUpRight :size="16" />
               </a>
+
+              <ul>
+                <li v-for="item in project.impact" :key="item">
+                  <CheckCircle2 :size="16" />
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+
+              <div class="tag-row" aria-label="Technology stack">
+                <span v-for="tag in project.stack" :key="tag">{{ tag }}</span>
+              </div>
             </div>
           </article>
         </div>

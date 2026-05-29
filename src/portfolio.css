@@ -511,6 +511,16 @@ h3 {
   aspect-ratio: 1834 / 810;
   padding: 10px;
   background: #e8eee9;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-media--link {
+  cursor: pointer;
+}
+
+.project-media--link:hover img {
+  transform: scale(1.01);
 }
 
 .project-media img {
@@ -520,6 +530,7 @@ h3 {
   border-radius: 6px;
   object-fit: contain;
   background: #ffffff;
+  transition: transform 180ms ease;
 }
 
 .project-fallback {
@@ -543,6 +554,18 @@ h3 {
   display: grid;
   gap: 14px;
   padding: 20px;
+}
+
+.project-title-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-title-link:hover {
+  color: var(--accent);
 }
 
 .project-link {
