@@ -185,19 +185,19 @@ img {
 .section-pad {
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
-  padding: 64px 0;
+  padding: 42px 0;
   scroll-margin-top: 92px;
 }
 
 .hero-section {
   display: grid;
-  gap: 34px;
-  padding-top: 42px;
+  gap: 24px;
+  padding-top: 28px;
 }
 
 .hero-copy {
   display: grid;
-  gap: 22px;
+  gap: 16px;
   min-width: 0;
 }
 
@@ -400,7 +400,7 @@ h3 {
 .compact-band {
   display: grid;
   gap: 12px;
-  padding-top: 18px;
+  padding-top: 8px;
 }
 
 .highlight-card,
@@ -440,7 +440,7 @@ h3 {
   display: grid;
   gap: 12px;
   max-width: 860px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .section-heading--row {
@@ -498,11 +498,11 @@ h3 {
 
 .project-list {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .project-card {
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 16px 52px rgba(19, 36, 30, 0.08);
 }
 
@@ -552,8 +552,8 @@ h3 {
 
 .project-body {
   display: grid;
-  gap: 14px;
-  padding: 20px;
+  gap: 10px;
+  padding: 18px;
 }
 
 .project-title-link {
@@ -568,14 +568,24 @@ h3 {
   color: var(--accent);
 }
 
+.project-url {
+  width: fit-content;
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .project-link {
   justify-self: start;
-  margin-top: 2px;
+  min-height: 38px;
+  padding: 8px 12px;
 }
 
 .project-body ul {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -639,11 +649,11 @@ h3 {
 }
 
 .skills-section {
-  padding-top: 40px;
+  padding-top: 28px;
 }
 
 .contact-section {
-  padding-bottom: 76px;
+  padding-bottom: 48px;
 }
 
 .contact-card {
@@ -728,9 +738,9 @@ h3 {
   .hero-section {
     grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.55fr);
     align-items: center;
-    gap: 46px;
-    min-height: calc(100svh - 72px);
-    padding-top: 58px;
+    gap: 34px;
+    min-height: auto;
+    padding-top: 40px;
   }
 
   .hero-stats {
@@ -738,7 +748,7 @@ h3 {
   }
 
   .section-pad {
-    padding-block: 86px;
+    padding-block: 54px;
   }
 
   .section-heading--row {
@@ -748,7 +758,7 @@ h3 {
 
   .about-grid {
     grid-template-columns: minmax(0, 1fr) 360px;
-    gap: 28px;
+    gap: 20px;
   }
 
   .project-card {
@@ -757,7 +767,7 @@ h3 {
   }
 
   .project-body {
-    padding: 30px;
+    padding: 24px;
   }
 
   .timeline-item {
@@ -773,10 +783,10 @@ h3 {
 
 @media (min-width: 1120px) {
   .project-body {
-    padding: 38px;
+    padding: 26px;
   }
 
   .contact-card {
-    padding: 46px;
+    padding: 34px;
   }
 }

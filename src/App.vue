@@ -426,6 +426,15 @@ onUnmounted(() => {
                 </a>
                 <template v-else>{{ project.title }}</template>
               </h3>
+              <a
+                v-if="project.link"
+                class="project-url"
+                :href="project.link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {{ project.link }}
+              </a>
               <p>{{ project.summary }}</p>
 
               <a
