@@ -510,7 +510,7 @@ h3 {
 
 .project-media {
   display: grid;
-  height: clamp(150px, 20vw, 240px);
+  height: clamp(280px, 40vw, 520px);
   padding: 0;
   background: #e8eee9;
   color: inherit;
@@ -530,7 +530,7 @@ h3 {
   height: 100%;
   border: 0;
   border-radius: 0;
-  object-fit: cover;
+  object-fit: contain;
   background: #ffffff;
   transition: transform 180ms ease;
 }
