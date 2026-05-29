@@ -77,6 +77,7 @@ const projects: Project[] = [
     eyebrow: 'Full-Stack / DevOps',
     summary:
       'A website I built independently from scratch and deployed to Azure with production infrastructure setup.',
+    image: 'https://mindanao.blob.core.windows.net/images/optimized/about-us/original.webp',
     link: 'http://mindanao.live/',
     impact: [
       'Created the entire website alone from scratch.',
