@@ -25,7 +25,8 @@ type Project = {
   title: string
   eyebrow: string
   summary: string
-  image: string
+  image?: string
+  link?: string
   impact: string[]
   stack: string[]
 }
@@ -76,7 +77,7 @@ const projects: Project[] = [
     eyebrow: 'Full-Stack / DevOps',
     summary:
       'My personal portfolio website, designed and built independently to present my work, technical background, and deployment experience.',
-    image: '/portfolio/projects/portfolio-website.png',
+    link: 'https://github.com/joshbarinan/vercel-portfolio',
     impact: [
       'Created the website independently from scratch, covering planning, development, and content structure.',
       'Deployed and configured the site on Azure with SSL for secure access.',
@@ -398,7 +399,7 @@ onUnmounted(() => {
           <article v-for="project in projects" :key="project.title" class="project-card">
             <div class="project-media">
               <img
-                v-if="!isImageMissing(project.image)"
+                v-if="project.image && !isImageMissing(project.image)"
                 :src="project.image"
                 :alt="project.title"
                 @error="markImageMissing(project.image)"
@@ -423,6 +424,17 @@ onUnmounted(() => {
               <div class="tag-row" aria-label="Technology stack">
                 <span v-for="tag in project.stack" :key="tag">{{ tag }}</span>
               </div>
+
+              <a
+                v-if="project.link"
+                class="text-link"
+                :href="project.link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View project
+                <ArrowUpRight :size="16" />
+              </a>
             </div>
           </article>
         </div>
